@@ -1081,3 +1081,44 @@ body.fingers-active :is(.case-hero, .case-body .case-media img, .case-body .case
   body.karlsson-active .case-body > .case-carousel { margin: 28px 0; }
   .cv-grid .cv-card { border-radius: 8px !important; }
 }
+
+/* Match both metadata columns, independently of project theme overrides. */
+body .case-head .case-meta > div > .case-meta-value:is(.case-role,.case-tags) {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  color: var(--text) !important;
+  align-self: stretch;
+}
+body .case-head .case-meta > div > .case-tags .tag-chip {
+  font: inherit !important;
+  color: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+
+/* Final scoped polish — preserve the individual art direction of every other case. */
+body .case-body { padding-bottom: 65px !important; }
+body .case-body > a.under-link:last-child { margin-top: 20px !important; }
+body .case-body > br:has(+ a.under-link:last-child) { display:none; }
+body .case-body > .case-video-source:has(~ a.under-link:last-child):not(:has(~ .case-media, ~ .case-carousel, ~ .case-media-heading)) { margin-bottom: 18px; }
+body .case-body > :is(.case-media,.case-carousel):has(+ br + a.under-link:last-child),
+body .case-body > :is(.case-media,.case-carousel):has(+ a.under-link:last-child) { margin-bottom: 18px; }
+body .case-head .case-meta > div { gap: 12px; }
+body .case-head .case-meta > div > .case-meta-value:is(.case-role,.case-tags) { display:block; color:var(--text)!important; margin:0!important; padding:0!important; font:inherit!important; line-height:1.4!important; }
+body .case-head .case-meta > div > .case-tags .tag-chip { display:inline; vertical-align:baseline; }
+body.karlsson-active .case-body > .case-carousel { margin:28px 0!important; }
+body.fingers-active :is(.case-hero,.case-body .case-media,.case-body .case-media img,.case-body .case-media video,.case-body .case-media iframe,.case-body .case-media-tile,.case-body .case-carousel-track,.case-body .case-carousel-slide,.case-body .case-carousel-slide img,.case-body .kinescope-frame,.case-body .kinescope-poster,.case-body .local-video-frame) { border-radius:16px!important; }
+body.cpp-explainer-active :is(.case-carousel-track,.case-carousel-slide,.case-carousel-slide img,.case-carousel-slide video) { border-radius:0!important; }
+body.trevoga-active :is(.case-hero,.case-body .case-media,.case-body .case-media img,.case-body .case-media video,.case-body .case-media iframe,.case-body .case-media-tile,.case-body .case-carousel-track,.case-body .case-carousel-slide,.case-body .case-carousel-slide img,.case-body .kinescope-frame,.case-body .kinescope-poster,.case-body .local-video-frame) { border-radius:0!important; }
+body.trevoga-active .case-body > .case-media-grid.trevoga-tile { width:100%;max-width:none;margin:28px auto 34px; }
+.intro-portrait img,.cv-photo-wrap img { border-radius:10px!important; }
+@media(max-width:700px){
+ body .case-body { padding-bottom:44px!important; }
+ body .case-body > a.under-link:last-child { margin-top:14px!important; }
+ body.trevoga-active .case-body > .case-media-grid.trevoga-tile { margin:22px auto 28px; }
+ .intro-portrait img,.cv-photo-wrap img { border-radius:8px!important; }
+}
