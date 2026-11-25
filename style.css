@@ -1122,3 +1122,23 @@ body.trevoga-active .case-body > .case-media-grid.trevoga-tile { width:100%;max-
  body.trevoga-active .case-body > .case-media-grid.trevoga-tile { margin:22px auto 28px; }
  .intro-portrait img,.cv-photo-wrap img { border-radius:8px!important; }
 }
+
+/* Closing rhythm and featured-project typography — scoped to these sections. */
+#work .project-card .card-bottom h3{margin-bottom:7px}
+#work .project-card .card-summary{margin-top:8px}
+#work .project-card .tags{margin-top:11px}
+#reel{padding-bottom:72px}
+#all{border-top:0;padding-top:50px}
+#all .filters{border-bottom:0}
+/* Remove stacked margins and the empty line box before the final navigation link. */
+body .case-body{padding-bottom:40px!important}
+body .case-body>a.under-link:last-child{display:flex!important;width:max-content;max-width:100%;margin-top:24px!important;margin-bottom:0!important}
+body .case-body>br:has(+ a.under-link:last-child){display:none!important}
+body .case-body>:is(.case-media,.case-carousel,.case-video-source):has(+ a.under-link:last-child),
+body .case-body>:is(.case-media,.case-carousel,.case-video-source):has(+ br + a.under-link:last-child){margin-bottom:0!important}
+@media(max-width:700px){
+ #reel{padding-bottom:50px}
+ #all{padding-top:40px}
+ body .case-body{padding-bottom:30px!important}
+ body .case-body>a.under-link:last-child{margin-top:20px!important}
+}
