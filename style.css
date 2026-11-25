@@ -1044,3 +1044,40 @@ body .case-body .case-media-tile>.local-video-frame>video{position:absolute;inse
 .reel-video-source{font-size:13px!important;margin:10px 0 0!important;color:var(--muted)}
 .reel-video-source a{text-decoration:underline;text-underline-offset:3px}
 body.tmh-active :is(.case-hero,.case-media,.case-media img,.case-media video){border-radius:0!important}
+
+/* Final portfolio refinements: shared metadata, CV panels and project-specific media. */
+body .case-head .case-meta > div > .case-meta-value {
+  padding: 0;
+  margin: 0;
+  color: var(--text) !important;
+  font-size: inherit;
+  line-height: 1.4;
+}
+body .case-head .case-meta > div > .case-tags {
+  align-items: baseline;
+  gap: 4px 0;
+}
+body .case-head .case-meta .case-tags .tag-chip {
+  font: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+body .case-head .case-meta b { color: var(--muted); }
+/* Match the ordinary media rhythm; keep carousel controls and proportions intact. */
+body.karlsson-active .case-body > .case-carousel { margin: 28px 0; }
+/* Fingers: one consistent corner treatment for all project media. */
+body.fingers-active :is(.case-hero, .case-body .case-media img, .case-body .case-media video, .case-body .case-media iframe, .case-body .case-media-tile, .case-carousel-track, .case-carousel-slide, .case-carousel-slide img, .case-body .kinescope-frame, .case-body .kinescope-poster, .case-body .local-video-frame) {
+  border-radius: 16px;
+}
+/* CV option 2: preserve the pale panels and their layout, remove extra decoration. */
+.cv-grid .cv-card {
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: rgba(255,255,255,.72) !important;
+  box-shadow: none;
+}
+.cv-grid .cv-card::before { content: none; display: none; }
+@media (max-width:700px) {
+  body.karlsson-active .case-body > .case-carousel { margin: 28px 0; }
+  .cv-grid .cv-card { border-radius: 8px !important; }
+}
