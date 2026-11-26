@@ -171,7 +171,7 @@ function keepShortWordsWithNext(root){
  if(!root)return;
  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];
  while(walker.nextNode()){const node=walker.currentNode;if(!node.parentElement?.closest('script,style,pre,code,textarea,svg'))nodes.push(node)}
- for(const node of nodes){const old=node.nodeValue;const next=old.replace(/(^|[^\p{L}\p{N}_-])(в|во|к|ко|с|со|у|о|об|обо|от|до|из|изо|за|на|по|под|при|для|без|над|перед|между|через|про|и|а|но|или|либо|да|не|ни)[ \t]+(?=[\p{L}\p{N}«„“(])/giu,'$1$2\u00a0').replace(/[ \t]+—/g,'\u00a0—');if(next!==old)node.nodeValue=next}
+ for(const node of nodes){const old=node.nodeValue;const next=old.replace(/(?<![\p{L}\p{N}_-])(в|во|к|ко|с|со|у|о|об|обо|от|до|из|изо|за|на|по|под|при|для|без|над|перед|между|через|про|и|а|но|или|либо|да|не|ни)[ \t]+(?=[\p{L}\p{N}«„“(])/giu,'$1\u00a0').replace(/[ \t]+—/g,'\u00a0—');if(next!==old)node.nodeValue=next}
 }
 keepShortWordsWithNext(document.body);window.addEventListener('hashchange',route);route();normalizeArrows();initLocalVideos(document);initKinescopeVideos(document);
 const menu=document.querySelector('.mobile-menu');menu.addEventListener('click',()=>{let open=document.querySelector('nav').classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
